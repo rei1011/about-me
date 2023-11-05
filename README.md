@@ -30,13 +30,13 @@ erDiagram
   - 当初はユーザ視点のモデルだけで実装していたが、グルーピングを実装する際に、以下の赤枠は所属先の組織から見た経歴とも捉えることができたので、モデルを分けて考えた
 ![profile](./assets/profile.jpg)
  
-- 所属先ごとに履歴を分かりやすくするため、[組織単位でグルーピング](https://github.com/rei1011/about-me/blob/f0cc12b13c87f0ce843a96029e003a1e76f7eebe/domain/profile/organization_profile.go#L15)した後、[組織への所属終了日が遅い順で並び替えた](https://github.com/rei1011/about-me/blob/f0cc12b13c87f0ce843a96029e003a1e76f7eebe/domain/profile/organization_profile.go#L35)
-  - 上記を実現するにあたって、[組織単位での所属期間を計算](https://github.com/rei1011/about-me/blob/f0cc12b13c87f0ce843a96029e003a1e76f7eebe/domain/profile/organization_profile.go#L84)できるようにした
+- 所属先ごとに履歴を分かりやすくするため、[組織単位でグルーピング](https://github.com/rei1011/about-me/blob/a8884def80b726de67c85668b7d6ac6c7e0124fd/domain/profile/organization_profile.go#L15)した後、[組織への所属終了日が遅い順で並び替えた](https://github.com/rei1011/about-me/blob/a8884def80b726de67c85668b7d6ac6c7e0124fd/domain/profile/organization_profile.go#L35)
+  - 上記を実現するにあたって、[組織単位での所属期間を計算](https://github.com/rei1011/about-me/blob/a8884def80b726de67c85668b7d6ac6c7e0124fd/domain/profile/organization_profile.go#L84)できるようにした
 
-- 所属先ごとの履歴に関しても[所属終了日が遅い順でソート](https://github.com/rei1011/about-me/blob/f0cc12b13c87f0ce843a96029e003a1e76f7eebe/domain/profile/user_profile.go#L26C7-L26C7)するようにした
+- 同じ企業の職歴（異動etc）に関しても[終了日が遅い順でソート](https://github.com/rei1011/about-me/blob/a8884def80b726de67c85668b7d6ac6c7e0124fd/domain/profile/user_profile.go#L26)するようにした
 
-- 職歴もしくは学歴のみを表示できるように、[職歴と学歴をグルーピング](https://github.com/rei1011/about-me/blob/f0cc12b13c87f0ce843a96029e003a1e76f7eebe/domain/profile/user_profile.go#L56)できるようにした
+- 職歴もしくは学歴のみを表示できるように、[職歴と学歴をグルーピング](https://github.com/rei1011/about-me/blob/a8884def80b726de67c85668b7d6ac6c7e0124fd/domain/profile/user_profile.go#L56)できるようにした
 
-- [所属開始日が設定されていない](https://github.com/rei1011/about-me/blob/f0cc12b13c87f0ce843a96029e003a1e76f7eebe/domain/period/period.go#L15)、もしくは[所属開始日>所属終了日になる](https://github.com/rei1011/about-me/blob/f0cc12b13c87f0ce843a96029e003a1e76f7eebe/domain/period/period.go#L22)ことは現実的にありえないので、errorを投げるようにした
+- [所属開始日が設定されていない](https://github.com/rei1011/about-me/blob/a8884def80b726de67c85668b7d6ac6c7e0124fd/domain/period/period.go#L15)、もしくは[所属開始日>所属終了日になる](https://github.com/rei1011/about-me/blob/a8884def80b726de67c85668b7d6ac6c7e0124fd/domain/period/period.go#L22)ことは現実的にありえないので、errorを投げるようにした
 
-- 学歴に雇用形態は存在しないため、[学歴から雇用形態を取得した場合はerrorを返す](https://github.com/rei1011/about-me/blob/5fbed477b9c88fe66076bc4e545362b02a5f3c54/domain/profile/user_profile.go#L91)ようにした
+- 学歴に雇用形態は存在しないため、[学歴から雇用形態を取得した場合はerrorを返す](https://github.com/rei1011/about-me/blob/a8884def80b726de67c85668b7d6ac6c7e0124fd/domain/profile/user_profile.go#L91)ようにしたj
