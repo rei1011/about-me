@@ -1,0 +1,21 @@
+{
+	"name": "Go",
+	"image": "mcr.microsoft.com/devcontainers/go:0-1.19-bullseye",
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"mhutchie.git-graph",
+				"yzhang.markdown-all-in-one",
+				"bierner.markdown-mermaid"
+			]
+		}
+	},
+	"portsAttributes": {
+		"9000": {
+			"label": "Hello Remote World",
+			"onAutoForward": "notify"
+		}
+	}
+}
