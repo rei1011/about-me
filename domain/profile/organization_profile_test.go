@@ -125,3 +125,9 @@ func TestToListByPeriod2(t *testing.T) {
 	assert.Equal(t, "Wantedly, Inc", result[0].Organization.Name)
 	assert.Equal(t, "テスト大学", result[1].Organization.Name)
 }
+
+// プロフィールが空の時
+func TestToListByPeriod3(t *testing.T) {
+	result := OrganizationProfileMap{}.ToListByPeriod()
+	assert.Equal(t, len(result), 0)
+}

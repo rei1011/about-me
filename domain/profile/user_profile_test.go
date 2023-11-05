@@ -104,3 +104,10 @@ func TestGroupByType2(t *testing.T) {
 	assert.Equal(t, len(result[WorkHistory].ProfileList), 2)
 	assert.Equal(t, len(result[EducationalBackground].ProfileList), 1)
 }
+
+// プロフィールが空の時
+func TestGroupByType3(t *testing.T) {
+	up := UserProfiles{}
+	result := up.GroupByType()
+	assert.Equal(t, len(result), 0)
+}
